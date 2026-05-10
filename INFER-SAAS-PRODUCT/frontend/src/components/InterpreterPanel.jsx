@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Send, Bot, User, Trash2 } from "lucide-react";
 
+const API_URL = "https://infer-causal-saas-1.onrender.com";
+
 export default function InterpreterPanel({ results, experimentMeta }) {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -15,7 +17,7 @@ export default function InterpreterPanel({ results, experimentMeta }) {
   useEffect(() => {
     const checkHealth = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/interpreter/health");
+        const res = await axios.get(`${API_URL}/interpreter/health`);
         if (res.data.groq === "connected") {
           setInterpreterAvailable(true);
           // Get initial suggested questions by sending a dummy request or just set some default
@@ -65,7 +67,7 @@ export default function InterpreterPanel({ results, experimentMeta }) {
     }));
 
     try {
-      const res = await axios.post("http://localhost:8000/interpret", {
+      const res = await axios.post(`${API_URL}/interpret`, {
         question: question,
         results: results || {},
         experiment_meta: experimentMeta || {},

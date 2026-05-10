@@ -5,7 +5,7 @@ import { FlaskConical } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://infer-causal-saas-1.onrender.com";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);

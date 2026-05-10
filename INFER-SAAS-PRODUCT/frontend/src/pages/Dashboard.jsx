@@ -28,7 +28,7 @@ import { usePyodide } from "@/hooks/usePyodide";
 import ModeComparisonCard from "@/components/ModeComparisonCard";
 import InterpreterPanel from "@/components/InterpreterPanel";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://infer-causal-saas-1.onrender.com";
 
 export default function Dashboard() {
   const [view, setView] = useState("upload");
